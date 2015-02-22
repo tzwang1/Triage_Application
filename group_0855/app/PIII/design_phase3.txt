@@ -1,0 +1,17 @@
+Phase III Design Description
+
+This design will contain 6 main backend classes: Patient, VitalSigns, PatientDatabase, PatientVisit, and User. As well as various front end Android activity classes.
+
+The triage application mainly revolves around accessing and manipulating the PatientDatabase class. When the application is accessed by authorized users, the application will load a text file which contains a list of patients and their respective information. 
+
+A patient will have the following variables: name (string), birthdate (date), health card number (string), arrival time (date), visits (patientVisit), and urgency (int). The information contained in the PatientVisit object will be a VitalSigns object, which contains information on their temperature, blood pressure, and heart rate. These values will then be used to calculate the patient’s urgency level. The PatientVisit object will also contain a date variable that stores the date and time the patient has seen a doctor. Each of the attributes in the patient class will be private to control access. Public getter and setter methods will be used to access these fields. The list of vital signs, and list of symptoms will be sorted from earliest recording to latest recording.
+
+The prescription class will contain the following variables: medicationName (string), and instructions(string). These will tell the patient the name of the medicine they are taking and the instructions on taking that medicine, respectively.
+
+The vital signs class will contain the following variables: temperature (float), blood pressure systolic (int), blood pressure diastolic (int), heart rate (int), and time (date).This will allow the nurses to view current data, as well as older data. To record new vital signs, the update vital signs method will append new vital signs data to the patient’s list of vital signs. Each time vital signs are updated, the patient’s urgency will be recalculated, and their status will be changed to “improving” or “worsening”. 
+
+The PatientDatabase class will consist of an array list of patients read into the application from patient_records.txt. There will be the option to sort patients that have been seen by a doctor by their urgency level; from highest urgency to lowest urgency. 
+
+The User class will contain information on the users username, password, and their credentials. Different aspects of the application will be accessible depending on the users credentials.
+
+All the front end classes will be stored in a separate package from the backend classes to organize the files better. The Android activities will call upon the methods stored in the backend java files.

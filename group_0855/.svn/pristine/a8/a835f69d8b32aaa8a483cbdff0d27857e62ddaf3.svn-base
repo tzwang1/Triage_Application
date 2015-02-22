@@ -1,0 +1,17 @@
+Monday, November 17, 2014
+5-6pm
+
+a) Recap on current state of the project
+Application runs
+Still some bugs and errors that need to be fixed
+
+b) Decide on a set of tasks to complete
+Fix all errors and make sure our application satisfies all the phase II requirements
+Add in a prescription class
+Create a method to check whether a patient has seen a doctor, and if yes sort a list of those patients based on decreasing urgency
+
+c) Decide who will complete which task
+Kevin – Fix all errors
+Afsheen, Truman, Linda – Create a method to sort list, Add in prescription class
+
+

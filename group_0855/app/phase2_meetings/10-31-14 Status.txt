@@ -1,0 +1,19 @@
+Friday, October 31, 2014
+1-1:30pm
+
+a) What everyone accomplished since the last meeting
+Everyone worked together to complete the new design
+description and CRC cards
+
+b)What we will accomplish before the next meeting
+Each group member will have completed part of the
+class they were assigned to do.
+
+-Truman: PatientDatabase class/helping other team members
+with their other classes.
+-Linda: Vitals class and Symptoms class
+-Afsheen: Patient class
+-Kevin: GUI class
+
+c)Any problems preventing progress?
+None

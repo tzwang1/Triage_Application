@@ -1,0 +1,13 @@
+Thursday, November 27, 2014
+12-12:20
+
+a) What everyone accomplished since the last meeting
+Fixed a few problems with the sort patient by urgency method
+Added in the option to add new patients
+
+b) What we will accomplish before the next meeting
+Truman, Kevin, Afsheen, Linda - Finish implementing the sort patient by urgency method. Finish commenting and cleaning up the code
+
+c) Any problems preventing progress?
+Many checked exceptions in our sort patient by urgency method. Not exactly sure how to proceed.
+

@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.triageapplication.MainActivity" >
+	
+    
+	<Button
+	    android:id="@+id/addPatient"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/add_patient"
+	    android:onClick="addPatient" />
+
+    <Button
+        android:id="@+id/sort_patient_by_urgency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/addPatient"
+        android:onClick="sortPatientByUrgency"
+        android:text="Toggle sort by urgency" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addPatient"
+        android:text="Logout"
+        android:onClick="logout" />
+
+		
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/logout"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/search_instruction" />
+
+        <EditText
+            android:id="@+id/healthCardField"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/instructions"
+            android:layout_toLeftOf="@+id/submitButton"
+            android:ems="10"
+            android:singleLine="true" >
+
+        </EditText>
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/healthCardField"
+            android:onClick="submitPatient"
+            android:text="@string/submit" />
+        
+        
+        <TextView
+            android:id="@+id/error_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="" />
+
+        <ListView
+            android:id="@+id/patient_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/submitButton" >
+
+        </ListView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

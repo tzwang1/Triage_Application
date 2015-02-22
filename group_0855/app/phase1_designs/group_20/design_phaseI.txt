@@ -1,0 +1,38 @@
+The only user for this triage application should be a nurse. But it is possible for future additions 
+of more kinds of medical staff who have access to patient information by simply extending the 
+superclass MedicalStaff. Anyone who accesses this application would also have access to the 
+PatientDatabase, therefore every MedicalStaff would have their own username and password, this may 
+be replaced or improved with more sophisticated security measures. And the access to the PatientDatabase 
+could be limited (read only, read/write, etc). The triage application mainly revolves around accessing 
+and manipulating the PatientDatabase. When the application is accessed by authorized users, the 
+application would return the user a copy of PatientDatabase which is saved externally. This feature 
+is accomplished by implementing the function which returns a copy of the PatientDatabase as a protected 
+function in MedicalStaff. 
+
+The PatientDatabase object will consist of a sorted list of patients by arrival time. This design of a 
+sorted list is to reduce the time needed to retrieve a list sorted by arrival time. The choice of 
+sorting by arrival time over urgency is because arrival time would not be normally changed after 
+initially entered unlike urgency which is regularly updated. This reduces the amount of effort required 
+to maintain the integrity of the sorted list. If the user instead wants a list sorted and categorized 
+by urgency, the application would then return a list of three elements, each another list sorted by 
+urgency as well with the three elements of differing urgency levels. The list structure can be replaced 
+with more optimized structures such as a Map which stores the patient’s (unique) health card number as 
+the key.
+
+The application would also have defined patient objects which contain their: name, date of birth, 
+health card number, arrival time, whether or not they’ve been visited by a doctor and if so a date to 
+indicate when, a list of their recorded vital signs sorted by the most recent, a list of symptoms 
+sorted by most recent, the patient’s current urgency level, and a function to reevaluate the patient’s 
+urgency level.  
+
+Each time their vitals are updated, their level of urgency is also recalculated. A nurse may update a 
+patient’s symptoms or vitals which are stored at the end of the list to signify that it was the latest 
+update. A nurse may also add the time when a doctor has visited the patient, as the description of this 
+application implies that each patient would only receive one visit at most from a doctor. If this is not 
+the case then the time a patient was visited by a doctor may be instead implement as a stack.
+
+Symptoms and vitals are also independently defined objects in this application. Symptom objects contain 
+a Map of symptom descriptions which are mapped to by symptom names as they should all have unique names. 
+Symptom objects would also contain a time for when this was recorded. Vitals contain more specific data 
+where it has a value for systolic and diastolic blood pressure, heart rate, temperature, and as well a 
+time for when this was recorded. 

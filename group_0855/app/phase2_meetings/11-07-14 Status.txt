@@ -1,0 +1,15 @@
+Friday, November 7, 2014
+1-1:30pm
+
+a) What everyone accomplished since the last meeting
+Symptoms, Vitals, and Patient classes were all finished.
+
+PatientDatabase still needs work (some methods incomplete)
+GUI still needs work
+
+b)What we will accomplish before the next meeting
+Finish PatientDatabase and GUI class
+Everyone will work on this together.
+
+c)Any problems preventing progress?
+A few errors in patientDatabase class

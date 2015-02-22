@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TriageApplication</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="submit">Submit</string>
+    <string name="add_patient">Add Patient</string>
+    <string name="search_instruction">Enter the health card number of the patient.</string>
+    <string name="title_activity_patient">PatientActivity</string>
+    <string name="patient_information"></string>
+    <string name="patient_name_title">Patient name:</string>
+    <string name="health_card_number_title">Health card number:</string>
+    <string name="dob_title">Date of birth:</string>
+    <string name="back">Back</string>
+    <string name="view_visit_records_title_button">View visit records</string>
+    <string name="title_activity_visit_records">VisitRecords</string>
+    <string name="create_visit_record_button_title">Create new visit record</string>
+    <string name="title_activity_create_visit_record">CreateVisitRecord</string>
+    <string name="arrival_time_title">Arrival time:</string>
+    <string name="arrival_date_title">Arrival date:</string>
+    <string name="cancel_new_visit_record_button">Cancel</string>
+    <string name="title_activity_edit_visit_record">EditVisitRecord</string>
+    <string name="create_new_vitals_record_button">Create new vitals</string>
+    <string name="edit_recent_vitals_button">Edit most recent vitals record</string>
+    <string name="set_arrival_time_button">Set arrival time</string>
+    <string name="set_arrival_date_button">Set arrival date</string>
+    <string name="view_visit_records">View visit record</string>
+    <string name="title_activity_new_vitals">NewVitals</string>
+    <string name="new_vitals_instructions">Enter the details of the patient\'s vital signs.</string>
+    <string name="diastolic_blood_pressure">Diastolic blood pressure</string>
+    <string name="systolic_blood_pressure">Systolic blood pressure</string>
+    <string name="temperature">Temperature</string>
+    <string name="heart_rate">Heart rate</string>
+    <string name="save_changes">Save changes</string>
+    <string name="update">Update</string>
+    <string name="title_activity_user_login">User Login</string>
+    <string name="title_activity_view_patient_visit_record">View Patient Visit Record</string>
+    <string name="title_activity_edit_prescription">Edit Prescription</string>
+    <string name="title_activity_add_new_doctor_visit">Add new doctor visit time</string>
+    <string name="title_activity_admin_login">AdminLogin</string>
+    <string name="title_activity_edit_user">EditUser</string>
+    <string name="title_activity_new_user">NewUser</string>
+    
+    <string name="title_activity_new_patient">Add New Patient</string>
+    <string name="new_patient_set_dob">Set DOB</string>
+    <string name="new_patient_error_empty">All fields must be filled</string>
+    <string name="new_patient_error_duplicate">This health card number exists</string>
+    <string name="new_patient_error_invalid_dob">Invalid date of birth</string>
+    <string name="new_patient_create">Create</string>
+    <string name="cancel">Cancel</string>
+    <string name="patient_list">Patient List</string>
+    
+</resources>

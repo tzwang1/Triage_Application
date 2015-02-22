@@ -1,0 +1,190 @@
+package com.triageapplication;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.model.Patient;
+import com.model.PatientVisit;
+import com.model.VitalSigns;
+import com.triageapplication.R.id;
+
+public class EditVisitRecord extends Activity implements OnItemSelectedListener {
+
+	private Patient patient;
+	// This index represents the index of the visit record that this activity is
+	// working with.
+	private int index = -1;
+	private PatientVisit pv = null;
+	// This index represents the index that is selected on the spinner.
+	private int vitalsIndex = 0;
+	private String userType;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_edit_visit_record);
+		Intent intent = this.getIntent();
+		userType = intent.getStringExtra("userType");
+		patient = (Patient) intent.getExtras().getSerializable("patient");
+		index = intent.getExtras().getInt("record_index");
+		pv = patient.getAllPatientVisits().get(index);
+		// This preserves the selected vitals on the spinner if the user is
+		// returning from the createVitals activity.
+		if (intent.getExtras().containsKey("vitals_index"))
+			vitalsIndex = intent.getExtras().getInt("vitals_index");
+		
+		Spinner spinner = (Spinner) findViewById(id.vital_sign);
+		List<String> vitals = new ArrayList<String>();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		for (VitalSigns vs : pv.getVitals()) {
+			vitals.add(sdf.format(vs.getTime().getTime()));
+		}
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, vitals);
+		dataAdapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spinner.setAdapter(dataAdapter);
+		refreshSpinner();
+		// Adds a listener to the spinner which responds when something is
+		// chosen.
+		spinner.setOnItemSelectedListener(this);
+	}
+	
+	@Override
+	public void onBackPressed() {
+	}
+
+	private void refreshSpinner() {
+		// Using the selected entry on the spinner, this method updates the
+		// TextViews with the correct information from the correct selected
+		// patient.
+		Spinner spinner = (Spinner) findViewById(id.vital_sign);
+		TextView tv = null;
+		
+		try {
+			
+			VitalSigns selectedVs = pv.getVitals().get(vitalsIndex);
+			
+			tv = (TextView) findViewById(id.temperature_text);
+			tv.setText("Temperature: "
+					+ String.valueOf(selectedVs.getTemperature()));
+			
+			tv = (TextView) findViewById(id.diastolic_blood_pressure_text);
+			tv.setText("Diastolic blood pressure: "
+					+ String.valueOf(selectedVs.getBloodPressureDiastolic()));
+			
+			tv = (TextView) findViewById(id.systolic_blood_pressure_text);
+			tv.setText("Systolic blood pressure: "
+					+ String.valueOf(selectedVs.getBloodPressureSystolic()));
+			
+			tv = (TextView) findViewById(id.heart_rate_text);
+			tv.setText("Heart rate: "
+					+ String.valueOf(selectedVs.getHeartRate()));
+			
+		} catch (IndexOutOfBoundsException e) {
+			
+			// If this patient has no past vitals recorded, then a
+			// "No record of visit was found." is displayed instead. Editing is
+			// also disable as obviously nothing can be edited.
+			tv = (TextView) findViewById(id.diastolic_blood_pressure_text);
+			tv.setText("No record of visit was found.");
+			
+			tv = (TextView) findViewById(id.temperature_text);
+			tv.setText("");
+			
+			tv = (TextView) findViewById(id.systolic_blood_pressure_text);
+			tv.setText("");
+			
+			tv = (TextView) findViewById(id.heart_rate_text);
+			tv.setText("");
+			
+			Button b = (Button) findViewById(id.view_visit_record);
+			b.setEnabled(false);
+			
+		}
+		spinner.setSelection(vitalsIndex);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.edit_visit_record, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	// This method doesn't do anything, but is sometimes used for debugging when
+	// the spinner doesn't update values properly by adding an "Update" button
+	// that points to this method.
+	public void update(View view) {
+		Spinner spinner = (Spinner) findViewById(id.vital_sign);
+		vitalsIndex = spinner.getSelectedItemPosition();
+		refreshSpinner();
+	}
+
+	public void back(View view) {
+		Intent intent = new Intent(this, VisitRecords.class);
+		intent.putExtra("patient", patient);
+		intent.putExtra("userType", userType);
+		startActivity(intent);
+	}
+
+	public void createVitals(View view) {
+		Intent intent = new Intent(this, NewVitals.class);
+		intent.putExtra("patient", patient);
+		intent.putExtra("index", index);
+		intent.putExtra("isEdit", false);
+		intent.putExtra("userType", userType);
+		intent.putExtra("vitals_index", vitalsIndex);
+		startActivity(intent);
+	}
+
+	public void editRecentVitals(View view) {
+		Intent intent = new Intent(this, NewVitals.class);
+		intent.putExtra("patient", patient);
+		intent.putExtra("index", index);
+		intent.putExtra("isEdit", true);
+		intent.putExtra("userType", userType);
+		startActivity(intent);
+	}
+
+	// A listener which updates the TextViews with the proper selected vital
+	// signs whenever invoked.
+	@Override
+	public void onItemSelected(AdapterView<?> parent, View view, int position,
+			long id) {
+		vitalsIndex = position;
+		refreshSpinner();
+
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> parent) {
+
+	}
+}

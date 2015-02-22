@@ -1,0 +1,43 @@
+Meeting Minutes
+
+11-17-14 - Planning
+Talked about our current application, and how to fix the bugs we have.
+
+Talked about Phase 3 Requirements
+
+Allocated jobs
+
+Kevin – Fix all errors
+Afsheen, Truman, Linda – Create a method to sort list, Add in prescription class
+
+11-22-14 - Status
+Talked about what each team member accomplished since the last meeting
+
+Decided what we will accomlish before the next meeting
+Truman, Afsheen: Test the newly added methods and ensure they are running properly. 
+Kevin: Try and make it work on the android application. 
+Linda: Add in a prescription class
+
+Talked about any issues/problems that are preventing progresss
+(Not sure whether to make prescription a class, or a variable within patient)
+
+11-24-14 - Planning
+Discussed the current state of our project. Prescription class has been added in/sever other extra features
+
+Decided on what tasks need to be completed
+-Add the sort list by urgency feature to GUI
+-Add the option to add patients to GUI
+
+Decided who will complete which task
+Truman, Kevin, Afsheen - add the sort list by urgency feature to GUI
+
+Linda - Add the opetion to add patients to GUI
+
+11-27-14 - Status
+Discussed what we accomplished since the last meeting, and what needs to be accomplished.
+
+Accomplished - fixed a few problems with the sort patient by urgency method. Added in the option to add new patients
+
+Unfinished - fully implement sort patient by urgency method, and add more comments
+
+Discussed the problems with our sort method, and how to proceed to fix them.

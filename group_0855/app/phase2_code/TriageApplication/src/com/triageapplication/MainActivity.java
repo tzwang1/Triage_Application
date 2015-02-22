@@ -1,0 +1,79 @@
+package com.triageapplication;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.res.AssetManager;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.model.NoRecordedDataException;
+import com.model.Patient;
+import com.model.PatientDatabase;
+import com.triageapplication.R.id;
+
+public class MainActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		PatientDatabase patients = null;
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
+	public void submitPatient(View view) {
+		Intent intent = new Intent(this, PatientActivity.class);
+		PatientDatabase pd = null;
+
+		AssetManager am = this.getAssets();
+		BufferedReader is = null;
+		TextView tv = (TextView) findViewById(id.error_message);
+		EditText et = (EditText) findViewById(id.healthCardField);
+		try {
+			is = new BufferedReader(new InputStreamReader(am.open("patient_records.txt")));
+			pd = new PatientDatabase(is);
+			pd.getPatientList();
+
+			intent.putExtra("patient", pd.retreivePatient(et.getText().toString()));
+			
+			//intent.putExtra("foo", et.getText().toString());
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoRecordedDataException e) {
+			// TODO Auto-generated catch block
+			tv.setText("Invalid patient");
+			return;
+		}
+		
+		startActivity(intent);
+	}
+}

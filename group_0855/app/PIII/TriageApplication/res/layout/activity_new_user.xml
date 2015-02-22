@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.triageapplication.NewUser" >
+
+    <EditText
+        android:id="@+id/new_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:hint="Username" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/new_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/new_username"
+        android:layout_below="@+id/new_username"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/confirm_new_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/new_password"
+        android:layout_below="@+id/new_password"
+        android:ems="10"
+        android:hint="Confirm password"
+        android:inputType="textPassword" />
+
+    <Spinner
+        android:id="@+id/user_types"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/confirm_new_password"
+        android:layout_below="@+id/confirm_new_password" />
+
+    <Button
+        android:id="@+id/return_to_admin_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/create_new_user"
+        android:layout_below="@+id/create_new_user"
+        android:text="@string/cancel_new_visit_record_button"
+        android:onClick="back" />
+
+    <Button
+        android:id="@+id/create_new_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/user_types"
+        android:layout_below="@+id/user_types"
+        android:text="Create new user"
+        android:onClick="create" />
+
+</RelativeLayout>

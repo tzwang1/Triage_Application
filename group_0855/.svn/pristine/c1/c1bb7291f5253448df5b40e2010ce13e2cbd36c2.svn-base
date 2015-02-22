@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.triageapplication"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="TriageApplication" >
+        </activity>
+        <activity
+            android:name=".PatientActivity"
+            android:label="Patient&apos;s information" >
+        </activity>
+        <activity
+            android:name=".VisitRecords"
+            android:label="View visit records" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.triageapplication.PatientActivity" />
+        </activity>
+        <activity
+            android:name=".CreateVisitRecord"
+            android:label="Create new visit record" >
+        </activity>
+        <activity
+            android:name=".EditVisitRecord"
+            android:label="Edit visit record" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.triageapplication.VisitRecords" />
+        </activity>
+        <activity
+            android:name=".NewVitals"
+            android:label="New vital signs entry" >
+        </activity>
+        <activity
+            android:name=".UserLogin"
+            android:label="@string/title_activity_user_login" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ViewPatientVisitRecord"
+            android:label="@string/title_activity_view_patient_visit_record" >
+        </activity>
+        <activity
+            android:name=".EditPrescription"
+            android:label="@string/title_activity_edit_prescription" >
+        </activity>
+        <activity
+            android:name=".AddNewDoctorVisit"
+            android:label="@string/title_activity_add_new_doctor_visit" >
+        </activity>
+        <activity
+            android:name=".AdminLogin"
+            android:label="@string/title_activity_admin_login" >
+        </activity>
+        <activity
+            android:name=".EditUser"
+            android:label="@string/title_activity_edit_user" >
+        </activity>
+        <activity
+            android:name=".NewUser"
+            android:label="@string/title_activity_new_user" >
+        </activity>
+        <activity
+            android:name=".NewPatientActivity"
+            android:label="@string/title_activity_new_patient" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,15 @@
+Monday, November 24, 2014
+12:00 - 12:30pm
+
+a) Recap on current state of project
+Added in prescription class
+Added in several extra features, such as adding users
+
+b)Decide on tasks to complete 
+Add the sort list by urgency feature to GUI
+Add the option to add patients to GUI
+
+c)Decide who will complete which task
+Truman, Kevin, Afsheen - add the sort list by urgency feature to GUI
+
+Linda - Add the opetion to add patients to GUI

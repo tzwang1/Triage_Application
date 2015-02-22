@@ -1,0 +1,13 @@
+Saturday, November 22, 2014
+5-5:20 pm
+
+a) What everyone accomplished since the last meeting
+Added in a method to check whether a patient has been seen by a doctor, and if they have to sort them by urgency
+
+b) What we will accomplish before the next meeting
+Truman, Afsheen: Test the newly added methods and ensure they are running properly. 
+Kevin: Try and make it work on the android application. 
+Linda: Add in a prescription class
+
+c) Any problems preventing progress?
+Prescription class added in late - still deciding on whether we should make it a class or just add it as a new variable to the Patient class

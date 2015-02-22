@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.triageapplication.VisitRecords" >
+
+    <TextView
+        android:id="@+id/doctor_visit_date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+    <Button
+        android:id="@+id/create_visit_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/doctor_visit_date_label"
+        android:layout_below="@+id/doctor_visit_date_label"
+        android:layout_marginTop="78dp"
+        android:onClick="createVisitRecord"
+        android:text="@string/create_visit_record_button_title" />
+
+    <Button
+        android:id="@+id/view_visit_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/create_visit_record"
+        android:layout_below="@+id/create_visit_record"
+        android:text="@string/view_visit_records"
+        android:onClick="viewVisitRecords" />
+
+    <Spinner
+        android:id="@+id/visit_records"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/doctor_visit_date_label"
+        android:layout_below="@+id/doctor_visit_date_label"
+        android:layout_marginTop="15dp" />
+
+    <Button
+        android:id="@+id/back_from_visit_records"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/view_visit_record"
+        android:layout_below="@+id/view_visit_record"
+        android:text="@string/back"
+        android:onClick="back" />
+
+</RelativeLayout>
